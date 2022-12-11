@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SanityService } from '../service/sanity.service';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { Project } from '../service/project';
 
 @Component({
