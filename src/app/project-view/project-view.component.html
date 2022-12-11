@@ -1,0 +1,19 @@
+<div class="container content-wrapper">
+    <div *ngFor="let project of projects" class="card">
+      <img
+        src="{{ imageUrl(project.project_image).width(200).url() }}"
+        alt="{{ project.project_name }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ project.project_name }}
+        </h5>
+        <p class="card-text">
+          {{ project.project_tags[0] }}, {{ project.project_tags[1] }}, and {{ project.project_tags[2] }} 
+        </p>
+        <div class ="text-center">
+            <a href="{{ project.project_repo }}" class="btn btn-dark">View Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
