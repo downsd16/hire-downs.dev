@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProjectViewComponent } from './project-view/project-view.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/movies', pathMatch: 'full'},
-  { path: 'movies', component: ProjectViewComponent}
+  { path: '', redirectTo: '/projects', pathMatch: 'full'},
+  { path: 'projects', component: ProjectViewComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
