@@ -1,7 +1,7 @@
 <div class="container content-wrapper">
-    <div *ngFor="let project of projects" class="card">
+    <div *ngFor="let project of projects" class="card border-0">
       <img
-        src="{{ imageUrl(project.project_image).width(200).url() }}"
+        src="{{ imageUrl(project.project_image).width(200).quality(100).url() }}"
         alt="{{ project.project_name }}"
       />
       <div class="card-body">
@@ -9,9 +9,9 @@
         
         <mat-accordion>
           <mat-expansion-panel class="mat-elevation-z0" hideToggle>
-            <mat-expansion-panel-header>
+            <mat-expansion-panel-header class="accordionHeader">
               <mat-panel-title>
-                <h5 class="card-title">
+                <h5 class="card-title text-center">
                   {{ project.project_name }}
                 </h5>
               </mat-panel-title>

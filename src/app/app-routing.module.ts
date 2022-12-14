@@ -2,11 +2,9 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProjectViewComponent } from './project-view/project-view.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/projects', pathMatch: 'full'},
-  { path: 'projects', component: ProjectViewComponent}
+  { path: '', redirectTo: '/', pathMatch: 'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

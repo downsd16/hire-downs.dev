@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SanityService } from '../service/sanity.service';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { Project } from '../service/project';
 
 @Component({
-  selector: 'app-project-view',
+  selector: 'project-view',
   templateUrl: './project-view.component.html',
   styleUrls: ['./project-view.component.css']
 })
