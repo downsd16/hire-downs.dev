@@ -1,7 +1,7 @@
 <div class="container content-wrapper">
     <div *ngFor="let project of projects" class="card border-0">
       <img
-        src="{{ imageUrl(project.project_image).width(200).quality(100).url() }}"
+        src="{{ imageUrl(project.project_image).width(500).height(300).quality(100).url() }}"
         alt="{{ project.project_name }}"
       />
       <div class="card-body">
@@ -20,7 +20,7 @@
                 {{ project.project_tags[0] }}, {{ project.project_tags[1] }}, and {{ project.project_tags[2] }}
               </b></p>
               <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                {{ project.project_description }}
               </p>
               <div class ="text-center">
                 <a href="{{ project.project_repo }}" class="btn btn-dark">View Code</a>

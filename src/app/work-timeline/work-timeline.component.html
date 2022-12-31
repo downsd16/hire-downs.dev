@@ -1,0 +1,10 @@
+<section class="ms-3 me-3 pb-3">
+    <ul class="timeline">
+      <li class="timeline-item mb-3" *ngFor="let work of works">
+        <h5 class="fw-bold">{{ work.title }}</h5>
+        <p class="mb-2 fw-bold">{{ work.institution }}</p>
+        <p class="text-muted mb-2 fw-bold">{{ work.start_date }} - {{ work.end_date }}</p>
+        <p class="text-muted">{{ work.description }}</p>
+      </li>
+    </ul>
+  </section>

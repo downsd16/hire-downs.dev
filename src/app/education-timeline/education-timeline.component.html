@@ -1,0 +1,9 @@
+<section class="ms-3 me-3 pb-3">
+    <ul class="timeline">
+      <li class="timeline-item mb-3" *ngFor="let education of educations">
+        <h4 class="fw-bold">{{ education.title }}</h4>
+        <p class="mb-2 fw-bold">{{ education.institution }}</p>
+        <p class="text-muted mb-5 fw-bold">{{ education.start_date }} - {{ education.end_date }}</p>
+      </li>
+    </ul>
+  </section>

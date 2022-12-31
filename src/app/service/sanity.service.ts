@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import sanityClient from '@sanity/client';
 import imageUrlBuilder from "@sanity/image-url";
-import { Experience } from './experience';
+
+import { Education } from './education';
+import { Work } from './work';
 import { Project } from './project';
 
 
@@ -24,21 +26,32 @@ export class SanityService {
 
   async getProjects(): Promise<Project[]> {
     return await this.sanityClientCredentials.option.fetch(
-      `*[_type == "projects"]{
+      `*[_type == "projects"] | order(project){
         project_name,
         project_image,
         project_repo,
-        project_tags
+        project_tags,
+        project_description
       }`
     )
   }
 
-  async getExperiences(): Promise<Experience[]> {
+  async getEducations(): Promise<Education[]> {
     return await this.sanityClientCredentials.option.fetch(
-      `*[_type == "experiences"]{
+      `*[_type == "educations"]{
         title,
         institution,
-        location,
+        start_date,
+        end_date
+      }`
+    )
+  }
+
+  async getWorks(): Promise<Work[]> {
+    return await this.sanityClientCredentials.option.fetch(
+      `*[_type == "works"]{
+        title,
+        institution,
         start_date,
         end_date,
         description

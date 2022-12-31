@@ -6,14 +6,18 @@ import { ProjectViewComponent } from './project-view/project-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HeaderComponent } from './header/header.component';
-import { TimelineComponent } from './timeline/timeline.component';
+import { WorkTimelineComponent } from './work-timeline/work-timeline.component';
+import { EducationTimelineComponent } from './education-timeline/education-timeline.component';
+import { DividerComponent } from './divider/divider.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectViewComponent,
     HeaderComponent,
-    TimelineComponent
+    WorkTimelineComponent,
+    EducationTimelineComponent,
+    DividerComponent
   ],
   imports: [
     BrowserModule,
