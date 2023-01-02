@@ -1,14 +1,16 @@
 <div class="container content-wrapper">
-    <div *ngFor="let project of projects" class="card border-0">
-      <img
+    <div *ngFor="let project of projects; index as i" class="card border-0">
+        <img
         src="{{ imageUrl(project.project_image).width(500).height(300).quality(100).url() }}"
         alt="{{ project.project_name }}"
-      />
+        (click)="projects[i].isExpanded = !projects[i].isExpanded"
+        />
+    
       <div class="card-body">
 
         
         <mat-accordion>
-          <mat-expansion-panel class="mat-elevation-z0" hideToggle>
+          <mat-expansion-panel class="mat-elevation-z0" [expanded]="project.isExpanded" hideToggle>
             <mat-expansion-panel-header class="accordionHeader">
               <mat-panel-title>
                 <h5 class="card-title text-center">

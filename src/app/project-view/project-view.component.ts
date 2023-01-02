@@ -13,6 +13,8 @@ export class ProjectViewComponent implements OnInit {
     private sanityService: SanityService
   ) { }
 
+    isExpanded: boolean = false;
+
   projects: Project[] = [];
 
   imageUrl(source: any) {
