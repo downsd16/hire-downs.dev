@@ -22,7 +22,21 @@ export class ProjectViewComponent implements OnInit {
   }
 
   async getProjects(): Promise<Project[]> {
-    this.projects = await this.sanityService.getProjects();
+    try {
+      this.projects = await this.sanityService.getProjects();
+      /* Sorting the projects by priority. */
+      this.projects.sort((a, b) => {
+        if (a.project_priority > b.project_priority) {
+            return -1;
+        } else if (a.project_priority < b.project_priority) {
+            return 1;
+        } else {
+            return 0;
+        }})
+    } catch (e) {
+      
+    }
+    
     return this.projects;
   }
 

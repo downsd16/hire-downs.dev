@@ -17,6 +17,16 @@ export class EducationTimelineComponent implements OnInit {
 
   async getEducations(): Promise<Education[]> {
     this.educations = await this.sanityService.getEducations();
+
+    this.educations.sort((a, b) => {
+      if (a.education_priority < b.education_priority) {
+          return -1;
+      } else if (a.education_priority > b.education_priority) {
+          return 1;
+      } else {
+          return 0;
+      }})
+
     return this.educations;
   }
 

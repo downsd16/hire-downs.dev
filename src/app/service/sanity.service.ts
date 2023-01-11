@@ -32,6 +32,7 @@ export class SanityService {
   async getProjects(): Promise<Project[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "projects"] | order(project){
+        project_priority,
         project_name,
         project_image,
         project_repo,
@@ -48,6 +49,7 @@ export class SanityService {
   async getEducations(): Promise<Education[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "educations"]{
+        education_priority,
         title,
         institution,
         start_date,
@@ -63,6 +65,7 @@ export class SanityService {
   async getWorks(): Promise<Work[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "works"]{
+        work_priority,
         title,
         institution,
         start_date,

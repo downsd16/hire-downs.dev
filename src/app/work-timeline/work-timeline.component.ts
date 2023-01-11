@@ -17,6 +17,16 @@ export class WorkTimelineComponent implements OnInit {
 
   async getWorks(): Promise<Work[]> {
     this.works = await this.sanityService.getWorks();
+
+    this.works.sort((a, b) => {
+      if (a.work_priority < b.work_priority) {
+          return -1;
+      } else if (a.work_priority > b.work_priority) {
+          return 1;
+      } else {
+          return 0;
+      }})
+
     return this.works;
   }
 
