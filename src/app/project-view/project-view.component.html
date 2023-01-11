@@ -1,4 +1,7 @@
-<div class="container content-wrapper">
+<!-- 
+  This is the HTML for the projects page. It is using the `projects` array to create a card for each project. 
+-->
+<div class="container content-wrapper py-5">
     <div *ngFor="let project of projects; index as i" class="card border-0">
         <img
         src="{{ imageUrl(project.project_image).width(500).height(300).quality(100).url() }}"

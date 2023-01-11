@@ -12,6 +12,7 @@ import { Project } from './project';
 })
 export class SanityService {
 
+  /* A variable that holds the credentials for the Sanity API. */
   sanityClientCredentials = {
     option: sanityClient({
       projectId: "3lg2bbxt",
@@ -24,6 +25,10 @@ export class SanityService {
   urlFor = (source: any) =>
   imageUrlBuilder(this.sanityClientCredentials.option).image(source);
 
+  /**
+   * This function is an asynchronous function that returns a promise of an array of projects
+   * @returns An array of objects
+   */
   async getProjects(): Promise<Project[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "projects"] | order(project){
@@ -36,6 +41,10 @@ export class SanityService {
     )
   }
 
+  /**
+   * This function is an asynchronous function that returns a promise of an array of education experience
+   * @returns An array of objects
+   */
   async getEducations(): Promise<Education[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "educations"]{
@@ -47,6 +56,10 @@ export class SanityService {
     )
   }
 
+  /**
+   * This function is an asynchronous function that returns a promise of an array of work experience
+   * @returns An array of objects
+   */
   async getWorks(): Promise<Work[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "works"]{
