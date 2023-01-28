@@ -1,9 +1,9 @@
 <!-- 
   This is the HTML for the projects page. It is using the `projects` array to create a card for each project. 
 -->
-<div class="d-flex justify-content-center my-5">
+<div class="d-flex justify-content-center flex-wrap my-5">
   <div>
-    <button mat-flat-button class="rounded-pill h4 bg-dark reset-button" (click)="selectedSkill = ''">
+    <button mat-flat-button class="rounded-pill h4 bg-dark reset-button mb-3" (click)="selectedSkill = ''">
       RESET
     </button>
   </div>
@@ -11,7 +11,7 @@
   <div *ngFor="let skill of skillTags">
     <button
       mat-flat-button
-      class="rounded-pill h4"
+      class="rounded-pill h4 mb-3"
       (click)="selectedSkill = skill"
       [ngClass]="{ 'selected-button': selectedSkill === skill }"
     >

@@ -44,8 +44,6 @@ export class ProjectViewComponent implements OnInit {
   getSkills() {
     this.projects.forEach(project => {
       project.project_tags.forEach(tag => {
-        console.log(tag)
-        
         if (!this.skillTags.includes(tag)) {
           this.skillTags.push(tag);
         }
