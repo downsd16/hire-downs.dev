@@ -4,6 +4,10 @@
     flex-direction: column;
 }
 
+.reset-button {
+    color: white;
+}
+
 .selected-button {
     background-color: rgb(155, 85, 221);
     color: white;
