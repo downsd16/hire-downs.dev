@@ -1,5 +1,5 @@
 export interface Project {
-    isExpanded: boolean;
+    isExpanded: boolean,
     project_priority: number,
     project_image: String,
     project_name: String,

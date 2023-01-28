@@ -7,15 +7,17 @@ import { Project } from '../service/project';
   templateUrl: './project-view.component.html',
   styleUrls: ['./project-view.component.css']
 })
+
 export class ProjectViewComponent implements OnInit {
 
   constructor(
     private sanityService: SanityService
   ) { }
 
-    isExpanded: boolean = false;
-
-  projects: Project[] = [];
+  isExpanded: boolean = false
+  selectedSkill: string = ""
+  projects: Project[] = []
+  skillTags: string[] = []
 
   imageUrl(source: any) {
     return this.sanityService.urlFor(source);
@@ -33,15 +35,26 @@ export class ProjectViewComponent implements OnInit {
         } else {
             return 0;
         }})
-    } catch (e) {
-      
-    }
-    
+    } catch (e) {}
+    this.getSkills()
+
     return this.projects;
   }
 
+  getSkills() {
+    this.projects.forEach(project => {
+      project.project_tags.forEach(tag => {
+        console.log(tag)
+        
+        if (!this.skillTags.includes(tag)) {
+          this.skillTags.push(tag);
+        }
+      });
+    });
+  }
+
   ngOnInit(): void {
-    this.getProjects();
+    this.getProjects()
   }
 
 }

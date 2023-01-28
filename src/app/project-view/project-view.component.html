@@ -1,38 +1,75 @@
 <!-- 
   This is the HTML for the projects page. It is using the `projects` array to create a card for each project. 
 -->
-<div class="container content-wrapper py-5">
-    <div *ngFor="let project of projects; index as i" class="card border-0">
-        <img
-        src="{{ imageUrl(project.project_image).width(500).height(300).quality(100).url() }}"
-        alt="{{ project.project_name }}"
-        (click)="projects[i].isExpanded = !projects[i].isExpanded"
-        />
-    
-      <div class="card-body">
-        
-        <mat-accordion>
-          <mat-expansion-panel class="mat-elevation-z0" [expanded]="project.isExpanded" hideToggle>
-            <mat-expansion-panel-header class="accordionHeader">
-              <mat-panel-title>
-                <h5 class="card-title text-center">
-                  {{ project.project_name }}
-                </h5>
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-              <p><b>
-                {{ project.project_tags[0] }}, {{ project.project_tags[1] }}, and {{ project.project_tags[2] }}
-              </b></p>
-              <p class="card-text">
-                {{ project.project_description }}
-              </p>
-              <div class ="text-center">
-                <a href="{{ project.project_repo }}" class="btn btn-dark">View Code</a>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
+<div class="d-flex justify-content-center my-5">
+  <div>
+    <button mat-flat-button class="rounded-pill h4 bg-warning" (click)="selectedSkill = ''">
+      RESET
+    </button>
+  </div>
 
-        
-      </div>
+  <div *ngFor="let skill of skillTags">
+    <button
+      mat-flat-button
+      class="rounded-pill h4"
+      (click)="selectedSkill = skill"
+      [ngClass]="{ 'selected-button': selectedSkill === skill }"
+    >
+      {{ skill }}
+    </button>
+  </div>
+</div>
+
+<div class="container content-wrapper pb-5">
+  <div
+    *ngFor="
+      let project of projects | filterProjects : selectedSkill;
+      index as i
+    "
+    class="card border-0"
+  >
+    <img
+      src="{{
+        imageUrl(project.project_image)
+          .width(500)
+          .height(300)
+          .quality(100)
+          .url()
+      }}"
+      alt="{{ project.project_name }}"
+      (click)="project.isExpanded = !project.isExpanded"
+    />
+
+    <div class="card-body">
+      <mat-accordion>
+        <mat-expansion-panel
+          class="mat-elevation-z0"
+          [expanded]="project.isExpanded"
+          hideToggle
+        >
+          <mat-expansion-panel-header class="accordionHeader">
+            <mat-panel-title>
+              <h5 class="card-title text-center">
+                {{ project.project_name }}
+              </h5>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            <b>
+              {{ project.project_tags[0] }}, {{ project.project_tags[1] }}, and
+              {{ project.project_tags[2] }}
+            </b>
+          </p>
+          <p class="card-text">
+            {{ project.project_description }}
+          </p>
+          <div class="text-center">
+            <a href="{{ project.project_repo }}" class="btn btn-dark"
+              >View Code</a
+            >
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </div>
+</div>
