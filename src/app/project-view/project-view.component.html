@@ -34,7 +34,7 @@
       (click)="project.isExpanded = !project.isExpanded"
     />
 
-    <div class="card-body">
+    <div class="card-body px-0">
       <mat-accordion>
         <mat-expansion-panel
           class="mat-elevation-z0"
@@ -54,7 +54,7 @@
             </b>
           </p>
           <p class="card-text text-center">
-            {{ project.project_description }}
+              {{ project.project_description }}
           </p>
           <div *ngIf="project.project_repo != ''" class="text-center">
             <a href="{{ project.project_repo }}" class="btn btn-dark"
