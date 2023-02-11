@@ -77,7 +77,7 @@ To get a local copy up and running follow these simple example steps.
 
 Please feel free to fork the respository and use this as a template for your own personal portfolio!
 
-All styles are implemented using TailWindCSS, Bootstrap, and the Angular Material Library. If you experience webpack issues, consider alternatives to Angular Material.
+If you experience webpack issues, consider alternatives to Angular Material for the project cards.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
