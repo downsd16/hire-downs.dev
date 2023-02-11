@@ -51,6 +51,10 @@ export class ProjectViewComponent implements OnInit {
     });
   }
 
+  toggleSelectedSkill(pSkill: string) {
+    this.selectedSkill = (pSkill === this.selectedSkill) ? '' : pSkill 
+  }
+
   ngOnInit(): void {
     this.getProjects()
   }
